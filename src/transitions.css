@@ -1,0 +1,100 @@
+/* Use hardware acceleration for animations */
+.fade-enter,
+.fade-exit {
+    will-change: opacity;
+    backface-visibility: hidden;
+    perspective: 1000;
+    transform: translate3d(0, 0, 0);
+}
+
+.fade-enter {
+    opacity: 0;
+}
+
+.fade-enter-active {
+    opacity: 1;
+    transition: opacity 200ms ease-in;
+}
+
+.fade-exit {
+    opacity: 1;
+}
+
+.fade-exit-active {
+    opacity: 0;
+    transition: opacity 200ms ease-out;
+}
+
+/* Optimize hover transitions */
+.hover-lift {
+    transition: transform 0.2s ease;
+    will-change: transform;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+}
+
+/* Reduce animation duration for better performance */
+.slide-up {
+    animation: slideUp 0.3s ease forwards;
+    will-change: transform;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Optimize performance for all animated elements */
+* {
+    /* Only animate transforms and opacity */
+    transition-property: transform, opacity;
+    /* Use shorter duration */
+    transition-duration: 200ms;
+    /* Use ease timing for smoother animations */
+    transition-timing-function: ease;
+}
+
+/* Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Use passive event listeners for touch events */
+.touch-scroll {
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Optimize paint operations */
+.optimize-paint {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Reduce repaints for fixed elements */
+.fixed-element {
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+/* Optimize GPU layers */
+.gpu-accelerated {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    will-change: transform;
+}

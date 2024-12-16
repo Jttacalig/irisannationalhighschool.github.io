@@ -1,0 +1,27 @@
+.news-events-swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.news-events-swiper .swiper-button-next,
+.news-events-swiper .swiper-button-prev {
+    color: #1976d2;
+    background: rgba(255, 255, 255, 0.8);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.news-events-swiper .swiper-button-next:after,
+.news-events-swiper .swiper-button-prev:after {
+    font-size: 20px;
+}
+
+.news-events-swiper .swiper-pagination-bullet {
+    background: #1976d2;
+}
+
+.news-events-swiper .swiper-pagination-bullet-active {
+    background: #1976d2;
+}

@@ -1,0 +1,148 @@
+.org-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 60px;
+    margin: 0 auto;
+    max-width: 1400px;
+}
+
+.org-level {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    width: 100%;
+    position: relative;
+    padding: 0 20px;
+}
+
+.org-level:not(:first-child)::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    width: 2px;
+    height: 60px;
+    background-color: #ccc;
+    transform: translateX(-50%);
+}
+
+.org-level:not(:first-child)::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    width: 80%;
+    height: 2px;
+    background-color: #ccc;
+    transform: translateX(-50%);
+}
+
+.org-box {
+    flex: 1;
+    min-width: 280px;
+    max-width: 320px;
+    padding: 24px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.org-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.org-box.principal {
+    background: linear-gradient(135deg, #1a237e, #283593);
+    color: white;
+}
+
+.org-box.head-teacher {
+    background: linear-gradient(135deg, #283593, #3949ab);
+    color: white;
+}
+
+.org-box.teacher {
+    background: linear-gradient(135deg, #3949ab, #5c6bc0);
+    color: white;
+}
+
+.org-box.staff {
+    background: linear-gradient(135deg, #5c6bc0, #7986cb);
+    color: white;
+}
+
+.org-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.org-name {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+.org-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    opacity: 0.85;
+    padding-top: 12px;
+    margin-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 1200px) {
+    .org-level {
+        gap: 30px;
+    }
+    
+    .org-box {
+        min-width: 260px;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .org-chart {
+        gap: 40px;
+    }
+
+    .org-level {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .org-level::after {
+        width: 2px;
+        height: 100%;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .org-box {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .org-title {
+        font-size: 1.1rem;
+    }
+
+    .org-name {
+        font-size: 1rem;
+    }
+
+    .org-description {
+        font-size: 0.85rem;
+    }
+}
